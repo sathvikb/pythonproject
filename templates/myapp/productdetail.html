@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+{% if prod %}
+        <h2>Product: {{ prod }}</h2>
+        <h2>People interested: {{ prod.interested }}</h2>
+
+    <h2>Price: {{ prod.price }}</h2>
+     <form method="post">
+        {% csrf_token %}
+            <table border="1" class="table">
+                {{ form }}
+            </table>
+         <button type="submit">  Submit </button>
+    </form>
+
+    {% else %}
+        <div class="alert alert-warning" role="alert">There are no available Products!</div>
+{#        <strong>There are no available Products!</strong>#}
+    {% endif %}
+{% endblock %}

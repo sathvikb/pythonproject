@@ -1,0 +1,32 @@
+{#{% extends 'myapp/base.html' %}#}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Online Store APP</title>
+</head>
+
+<body>
+
+ {% if category %}
+<b>  Category :  {{ category.name}}  <br>
+     Warehouse Location :  {{ category.warehouse}}   <br>
+        Products: </b> <br>
+
+
+
+<ol>
+            {% for pro  in product%}
+<li> {{ pro}} </li>
+{% endfor%}
+</ol>
+
+    {% else %}
+<strong>There are no available categories! </strong>
+    {% endif %}
+
+
+<p><a href="{% url 'myapp:index' %}">Go back to Main</a></p>
+
+</body>
+</html>

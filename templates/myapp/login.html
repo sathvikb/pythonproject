@@ -1,0 +1,34 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+
+
+<form method="post">
+{% csrf_token %}
+    {% if msg %}
+        <div class="alert alert-danger" role="alert"><h4>{{ msg }}</h4></div>
+    {% endif %}
+    <div class="loginform">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <input type="text" name="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fas fa-key"></i></span>
+            <input type="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" value="submit" class="btn btn-success loginbtn">Login</button>
+        <a href="{% url 'myapp:reset_password' %}">forgot password?</a>
+    </div>
+
+
+{#    <label>Username</label> <input type="text" name="username">#}
+{#    <label>Password</label><input type="password" name="password">#}
+{#    <button type="submit" value="submit">submit</button>#}
+</form>
+
+{#</form>#}
+
+
+{% endblock %}

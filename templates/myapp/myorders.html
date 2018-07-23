@@ -1,0 +1,35 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+{% if testuser.client %}
+
+    {% if myorder %}
+        <div class="panel panel-success detailpanel">
+
+            <table class="table">
+            <tr class="thisrow">
+
+                <th>#</th>
+                <th>Product</th>
+
+            </tr>
+            {% for order in myorder %}
+                <tr>
+                    <td class="counterCell"></td>
+                    <td>{{ order.product }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+    {% else %}
+        <div class="alert alert-info" role="alert"><strong>You have not placed any order!</strong></div>
+
+    {% endif %}
+{% else %}
+    <div class="alert alert-danger" role="alert"><strong>You are not a registered client!</strong></div>
+
+{% endif %}
+
+{% endblock %}

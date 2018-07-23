@@ -1,0 +1,32 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    {% if testuser.client %}
+        {% if prodlist %}
+            <h2>List of Products</h2>
+            <ol>
+                {% for pro  in prodlist %}
+                    <li> {{ pro }}:  ${{ pro.price }} </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <div class="alert alert-warning" role="alert">There are no available products!</div>
+{#        <strong>There are no available products!</strong>#}
+    {% endif %}
+    <form method="post">
+    {% csrf_token %}
+{#        <input type="text" name="client" value="{{ request.user.username }}">#}
+        <div class="panel panel-success detailpanel">
+        <table border="1" class="table">
+            {{  form }}
+        </table>
+    <br>
+    <button type="submit" class="btn btn-success loginbtn">Submit</button>
+            </div>
+    </form>
+    {% else %}
+    <div class="alert alert-danger" role="alert"><strong>You are not a registered client!</strong></div>
+
+{% endif %}
+
+{% endblock %}

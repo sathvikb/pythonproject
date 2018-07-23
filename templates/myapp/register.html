@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+<form method="post">
+{% csrf_token %}
+
+<div class="loginform">
+    <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" id="username" aria-describedby="username2" placeholder="Enter username" required>
+
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+  </div>
+    <div class="form-group">
+    <label for="company">Company</label>
+    <input type="text" class="form-control" name="company" id="company" placeholder="Company" required>
+  </div>
+    <div class="form-group">
+    <label for="shippingadd">Shipping address</label>
+    <input type="text" class="form-control" name="shippingadd" id="shippingadd" placeholder="Shipping address" required>
+  </div>
+    <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" name="city" id="city" placeholder="City" required>
+  </div>
+    <div class="form-group">
+    <label for="prov">Province</label>
+    <input type="text" class="form-control" name="prov" id="prov" placeholder="Province " required>
+  </div>
+    <button type="submit" class="btn btn-success loginbtn">Submit</button>
+</div>
+
+
+
+</form>
+
+
+
+{% endblock %}
